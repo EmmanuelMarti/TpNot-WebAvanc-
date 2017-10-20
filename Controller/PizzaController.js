@@ -1,12 +1,12 @@
 "use strict";
-
-const path = require('path');
+// On va définir tous les modules que l'on a de besoin afin de permettre au route d'exister
 const express = require("express");
 const app = express();
 const router = express.Router();
 const pizzaSchema = require('../Model/Pizza');
 const bodyParser = require('body-parser');
 
+// Configuration de body parser pour le post car il n'est pas dans le module express
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
     //res.sendFile(path.join(__dirname, '..', 'View', 'Project', 'ListProject.html')); // C'est la seule et unique page de notre SPA
 });
 
-// Nouvelle pizza
+// Insertion d'une nouvelle pizza
 router.post('/', (req, res) => {
     let newPizza = new pizzaSchema({ 
             name: req.body.name, 
@@ -42,6 +42,12 @@ router.post('/', (req, res) => {
 
 
 // Récupération d'une pizza en particulier
+/**
+ * 
+ * @param string name
+ * @return object json
+ * 
+ **/ 
 router.get('/:name', (req, res) => {
     console.log(req.params);
     pizzaSchema.find({ name: req.params.name }, (err, doc) => {
@@ -57,6 +63,13 @@ router.get('/:name', (req, res) => {
 });
 
 //Modification d'une pizza
+// Pour faire la modification de la pizza nous avons besoin de récuperer l'id 
+// de la pizza.
+/**
+ * @params name string
+ * @return error or object json
+ * 
+ **/ 
 router.put('/:name', (req, res) => {
     pizzaSchema.findOneAndUpdate({name: req.body.oldName}, {$set: {
         name            : req.body.name,
@@ -76,6 +89,11 @@ router.put('/:name', (req, res) => {
 });
 
 //Suppression d'une pizza
+/**
+ * @param id string
+ * @return object json or an error
+ * 
+ **/
 router.delete('/:id', (req, res) => {
     pizzaSchema.findOneAndRemove({_id : req.body.id}, (err,doc)=>{
         if(err){
