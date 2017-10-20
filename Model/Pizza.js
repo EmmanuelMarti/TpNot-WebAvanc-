@@ -19,11 +19,21 @@ const PizzaSchema = new Schema({
         required: true,
         trim: true,
     },
-    image: {
+    dateCreated: {
+        type: Date,
+        required: true,
+        trim: true
+    },
+    dateUpdated: {
+        type: Date,
+        required: true,
+        trim: true
+    }
+/*    image: {
         type:String,
         required: true,
         trim: true,
-    }
+    }*/
 
 });
 
