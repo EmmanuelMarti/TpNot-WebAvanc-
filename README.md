@@ -12,3 +12,5 @@ faire les fichiers
 ajouter les lignes à l'intérieur
 sudo chmod +x mongod
 sudo chmod +x mongodRepair
+
+
