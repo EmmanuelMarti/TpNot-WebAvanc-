@@ -1,0 +1,25 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "tp pizza",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmmanuelMarti/TpNot-WebAvanc-.git"
+  },
+  "author": "Emmanuel Marti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmmanuelMarti/TpNot-WebAvanc-/issues"
+  },
+  "homepage": "https://github.com/EmmanuelMarti/TpNot-WebAvanc-#readme"
+}
